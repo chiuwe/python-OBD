@@ -176,6 +176,11 @@ __mode7__ = [
     OBDCommand("GET_FREEZE_DTC"             , "Get Freeze DTCs"                         , "07",   0, dtc,                   ECU.ALL,     False),
 ]
 
+__mode9__ = [
+    #                      name                             description                    cmd  bytes       decoder           ECU        fast
+    OBDCommand("VIN"                        , "Get the vehicles VIN"                    , "0902", 0, raw_string,            ECU.ALL,     False),
+]
+
 __misc__ = [
     #                      name                             description                    cmd  bytes       decoder           ECU        fast
     OBDCommand("ELM_VERSION"                , "ELM327 version string"                   , "ATI",  0, raw_string,            ECU.UNKNOWN, False),
@@ -200,7 +205,9 @@ class Commands():
             __mode4__,
             [],
             [],
-            __mode7__
+            __mode7__,
+            [],
+            __mode9__
         ]
 
         # allow commands to be accessed by name
